@@ -20,6 +20,9 @@ function gen_router_config(dir_path, ref, parent_router_path) {
       }
       // 文件
       if (current_stat.isFile()) {
+        if (file_or_dir_name === 'index.md') {
+          return
+        }
         const current_router_path = parent_router_path
           ? `${parent_router_path}${file_or_dir_name}`
           : `/${file_or_dir_name}`
@@ -45,7 +48,7 @@ function gen_router_config(dir_path, ref, parent_router_path) {
           children: []
         }
         ref.push(group)
-        gen_router_config(current_path, ref[ref.length-1].children, current_router_path)
+        gen_router_config(current_path, group.children, current_router_path)
       }
     })
   } catch (error) {

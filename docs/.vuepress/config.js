@@ -40,6 +40,5 @@ module.exports = {
     ],
     sidebar: routerConfig,
     sidebarDepth: 4,
-    displayAllHeaders: true,
   },
 }

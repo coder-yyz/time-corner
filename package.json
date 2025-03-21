@@ -5,13 +5,12 @@
   "repository": "https://github.com/coder-yyz/time-corner.git",
   "author": "coder-yyz",
   "license": "MIT",
-  "homepage": "https://coder-yyz.github.io/time-corner/",
   "scripts": {
     "dev": "node init && vuepress dev docs",
     "build": "node init && rm -rf docs/.vuepress/dist && vuepress build docs"
   },
   "dependencies": {
-    "vuepress": "^1.9.10",
+    "vuepress": "^1.9.7",
     "vuepress-theme-reco": "^1.6.17"
   }
 }
