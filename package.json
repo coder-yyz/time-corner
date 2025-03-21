@@ -7,7 +7,8 @@
   "license": "MIT",
   "homepage": "https://coder-yyz.github.io/time-corner/",
   "scripts": {
-    "build": "vuepress build docs"
+    "dev": "node init && vuepress dev docs",
+    "build": "node init && rm -rf docs/.vuepress/dist && vuepress build docs"
   },
   "dependencies": {
     "vuepress": "^1.9.10",
