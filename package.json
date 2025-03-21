@@ -6,6 +6,9 @@
   "author": "coder-yyz",
   "license": "MIT",
   "homepage": "https://coder-yyz.github.io/time-corner/",
+  "scripts": {
+    "build": "vuepress build docs"
+  },
   "dependencies": {
     "vuepress": "^1.9.10",
     "vuepress-theme-reco": "^1.6.17"
