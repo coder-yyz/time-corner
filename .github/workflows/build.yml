@@ -16,7 +16,7 @@ jobs:
       - name: Build and Deploy
         uses: jenkey2011/vuepress-deploy@v1.8.1
         env:
-          ACCESS_TOKEN: ${{ secrets.token }}
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
           TARGET_REPO: coder-yyz/time-corner
           TARGET_BRANCH: master
           BUILD_SCRIPT: yarn && yarn build
