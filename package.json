@@ -1,0 +1,13 @@
+{
+  "name": "time-corner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/coder-yyz/time-corner.git",
+  "author": "coder-yyz",
+  "license": "MIT",
+  "homepage": "https://coder-yyz.github.io/time-corner/",
+  "dependencies": {
+    "vuepress": "^1.9.10",
+    "vuepress-theme-reco": "^1.6.17"
+  }
+}
