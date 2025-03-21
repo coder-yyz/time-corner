@@ -3,7 +3,7 @@ const routerConfig = require('./router.config.json')
 module.exports = {
   title: 'Time Corner',
   description: '前端学习笔记',
-  base: '/time-corner',
+  base: '/time-corner/',
   theme: 'reco',
   // head: [
   //   [
