@@ -1,8 +1,11 @@
 # 实现一个带最大并发限制的fetch请求函数
 
 ```js
+// 最大并发数
 const MAX_LIMIT = 3;
+// 请求队列
 const excutedQueue = [];
+// 正在执行的请求数量
 let activeRequests = 0;
 const myFetch = (url, options) => {
   return new Promise(async (reslove, reject) => {

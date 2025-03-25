@@ -1,5 +1,14 @@
 # 实现Promise.all
 
+`Promise.all` 方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。所有子 Promise 都成功，父 Promise 才成功；只要有一个失败，父 Promise 就失败。
+
+分析：
+1. `Promise.all` 接收一个数组参数，数组的每一项都是一个 Promise 实例。
+2. 返回一个新的 Promise 实例，该实例在所有子 Promise 都成功时才成功，只要有一个失败就失败。
+3. 返回的 Promise 实例的结果是一个数组，数组的每一项是对应子 Promise 的结果。
+
+
+
 ```javascript
 function myPromiseAll(promises) {
   if (!Array.isArray(promises)) {
