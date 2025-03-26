@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/coder-yyz/time-corner.git",
   "author": "coder-yyz",
+  "homepage": "https://coder-yyz.github.io/time-corner/",
   "license": "MIT",
   "scripts": {
     "dev": "node init && vuepress dev docs",
