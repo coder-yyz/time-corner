@@ -46,4 +46,66 @@ package.json 文件是项目的清单，是配置和描述如何与程序交互�
 * `bugs`：项目的 bug 反馈地址，可以是一个邮箱地址或一个 URL 地址。
 * `engines`：项目所需的 Node.js 版本，可以指定一个范围，例如 `">=10.0.0"`，表示需要 Node.js 10.0.0 或更高版本。
 * `os`：项目所需的操作系统，可以指定一个范围，例如 `["darwin", "linux"]`，表示支持 macOS 和 Linux 操作系统。
-* `cpu`：项目所需的 CPU 架构，可以指定一个范围，例如 `["x64", "arm64"]`，表示支持 x64 和 arm64 架构的 CPU。 
+* `cpu`：项目所需的 CPU 架构，可以指定一个范围，例如 `["x64", "arm64"]`，表示支持 x64 和 arm64 架构的 CPU。
+
+## 示例
+
+```json
+{
+  "name": "my-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A sample project",
+  "keywords": [
+    "sample",
+    "project"
+  ],
+  "license": "MIT",
+  "author": "yyz",
+  "contributors": [
+    "yyz"
+  ],
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "bin": {
+    "my-project": "./bin/my-project.js"
+  },
+  "directories": {
+    "lib": "./lib",
+    "bin": "./bin",
+    "doc": "./doc"
+  },
+  "config": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "repository": "https://github.com/coder-yyz/time-corner.git",
+  "private": false,
+  "main": "./dist/index.js",
+    "scripts": {
+        "start": "node ./dist/index.js",
+        "test": "jest",
+        "build": "webpack --config webpack.config.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "jest": "^26.6.0",
+        "webpack": "^5.0.0"
+    },
+    "peerDependencies": {
+        "react": "^17.0.0"
+    },
+    "bundledDependencies": [
+        "lodash"
+    ],
+    "optionalDependencies": {
+        "fsevents": "^2.0.0"
+    },
+    "preferGlobal": false
+  
+}
+```
