@@ -1,0 +1,12 @@
+{
+  "name": "markdown-parser",
+  "version": "1.0.0",
+  "description": "a markdown parser",
+  "main": "index.js",
+  "author": "coder-yyz",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "webpack": "^5.99.6"
+  }
+}
