@@ -10,7 +10,7 @@ type Token = {
   type: TokenType;
   text: TokenType;
   token?: Token[];
-  finish: boolean;
+  complete: boolean
 }
 
 class Parser {
@@ -19,7 +19,15 @@ class Parser {
   }
 
   parse(input: string): string {
-    // Placeholder for parsing logic
+    // 将所有换行符替换为 \n
+    input = input.replace(/(\r\n|\n|\r)/g, '\n');
+    // 制表符替换为 4 个空格
+    input = input.replace(/\t/g, '    ');
     return input;
   }
+
+  parseInline() {
+
+  }
+
 }

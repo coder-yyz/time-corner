@@ -6,6 +6,10 @@
   "author": "coder-yyz",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
   "dependencies": {
     "webpack": "^5.99.6"
   }

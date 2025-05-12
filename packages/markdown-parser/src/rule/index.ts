@@ -1,5 +1,6 @@
-// h1-h6
-const isHead = /^#{1,6}\s/;
+// Heading  # 或者 下划线 或者 等号
+const isHeading = /^{0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/
+
 
 // paragraph
 const isParagraph = /^[^\s#].+/;
