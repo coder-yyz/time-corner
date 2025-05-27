@@ -57,6 +57,26 @@ function gen_router_config(dir_path, ref, parent_router_path) {
 }
 gen_router_config(docs_path, router, '')
 router.unshift({ title: '主页', path: '/' })
+// 递归排序 如果title中存在数字，则按照数字排序
+
+const sort = (a, b) => {
+  const aNum = parseInt(a.title.match(/\d+/)?.[0] || '0', 10)
+  const bNum = parseInt(b.title.match(/\d+/)?.[0] || '0', 10)
+  return aNum - bNum
+}
+router.sort((a, b) => {
+  if (a.children && b.children) {
+    return sort(a, b)
+  }
+  if (a.children) {
+    return -1
+  }
+  if (b.children) {
+    return 1
+  }
+  return sort(a, b)
+})
+
 const json = JSON.stringify(router)
 fs.writeFile('./docs/.vuepress/router.config.json', json, (err) => {
   if (err){
