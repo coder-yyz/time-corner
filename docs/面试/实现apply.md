@@ -44,9 +44,9 @@ const obj = {
   age: 20,
 }
 
-function fn(...args) {
-  this.name = [...args][0] || this.name;
-  this.age = [...args][1] || this.age;
+function fn(name, age) {
+  this.name = name || this.name;
+  this.age = age || this.age;
   console.log(this.name, this.age);
 }
 
