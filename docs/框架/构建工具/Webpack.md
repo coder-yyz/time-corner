@@ -3,6 +3,7 @@
 ## 构建工具
 
 ### 浏览器端的模块化
+
 问题：
 - 效率问题：精细的模块划分带来了更多的JS文件，更多的JS文件带来了更多的请求，降低了页面访问效率
 - 兼容性问题：浏览器目前仅支持ES6的模块化标准，并且还存在兼容性问题
@@ -48,6 +49,7 @@
 ### 常见的构建工具
 
 - **webpack**
+- vite
 - grunt
 - gulp
 - browserify
@@ -117,8 +119,6 @@ webpack
 ### 最佳实践
 
 代码编写最忌讳的是精神分裂，选择一个合适的模块化标准，然后贯彻整个开发阶段。
-
-
 
 
 ## 配置文件
@@ -487,7 +487,9 @@ npx webpack --env.abc=1 --env.bcd=2 # env: {abc:1, bcd:2}
 ## 常用扩展
 
 ### 清除输出目录
+
 clean-webpack-plugin
+
 ```javascript
 var { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
@@ -504,10 +506,10 @@ module.exports = {
 
 ```
 
-
-
 ### 自动生成页面
+
 html-webpack-plugin
+
 ```javascript
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -539,7 +541,9 @@ module.exports = {
 ```
 
 ### 复制静态资源
+
 copy-webpack-plugin
+
 ```javascript
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
