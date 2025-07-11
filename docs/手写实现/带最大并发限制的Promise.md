@@ -2,47 +2,51 @@
 
 ```javascript
 // 最大并发数
-const MAX_LIMIT = 3;
-// 请求队列
-const excutedQueue = [];
-// 正在执行的请求数量
-let activeRequests = 0;
-const myPromise = (func) => {
-  return new Promise(async (resolve, reject) => {
-    const executeRequest = async () => {
-      activeRequests += 1;
+const MAX_LIMIT = 2
+// promsie队列
+const promiseQueue = []
+// 进行中的数量
+let activePromises = 0
+
+function limitPromise(promiseFn) {
+  return new Promise((resolve, reject) => {
+    // 每个resolve和reject只会被调用一次
+    const excuteRequest = async () => {
+      activePromises++;
       try {
-        const res = await func();
+        const res = await promiseFn();
         resolve(res);
-      } catch (e) {
-        reject(e);
+      } catch (error) {
+        reject(error);
       } finally {
-        activeRequests -= 1;
-        if (excutedQueue.length) {
-          excutedQueue.shift()();
+        activePromises--;
+        if (promiseQueue.length > 0) {
+          promiseQueue.shift()()
         }
       }
     }
-    
-    if (activeRequests >= MAX_LIMIT) {
-      excutedQueue.push(executeRequest);
+    if (activePromises >= MAX_LIMIT) {
+      // 加入队列的是一个函数，而不是直接执行的Promise，这个函数包含了reslove和reject
+      promiseQueue.push(excuteRequest)
     } else {
-      executeRequest();
+      excuteRequest()
     }
   })
 }
 
-// 测试
-const urls = Array.from({ length: 10 }, (v, k) => k);
-urls.map((url) => {
-  myPromise(() => {
+setInterval(() => {
+  const promiseFn = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(url);
-      }, 1000);
-    });
-  }).then((data) => {
-    console.log('url', data);
-  });
-});
+        resolve(`Promise resolved at ${new Date().toLocaleTimeString()}`);
+      }, 3000);
+    })
+  }
+  // 这里传入的promiseFn是一个函数，返回一个Promise，不能直接传入一个Promise对象
+  // 直接传入一个Promise对象的话，传入的时候就会执行，而不是等到需要的时候才执行
+  limitPromise(promiseFn).then((result) => {
+    console.log(result);
+  })
+
+}, 1000);
 ```
