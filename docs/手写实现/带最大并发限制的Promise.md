@@ -10,7 +10,7 @@ let activePromises = 0
 
 function limitPromise(promiseFn) {
   return new Promise((resolve, reject) => {
-    // 每个resolve和reject只会被调用一次
+    // excuteRequest是一个闭包，包含了执行promiseFn，resolve和reject控制等逻辑
     const excuteRequest = async () => {
       activePromises++;
       try {
@@ -26,7 +26,7 @@ function limitPromise(promiseFn) {
       }
     }
     if (activePromises >= MAX_LIMIT) {
-      // 加入队列的是一个函数，而不是直接执行的Promise，这个函数包含了reslove和reject
+      // 入队整个 excuteRequest（而不是 promiseFn）的原因是：队列里需要的是“完整的执行流程”，而不仅仅是要执行的异步函数本身。
       promiseQueue.push(excuteRequest)
     } else {
       excuteRequest()
