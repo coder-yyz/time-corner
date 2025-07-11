@@ -20,7 +20,7 @@ function limitPromise(promiseFn) {
         reject(error);
       } finally {
         activePromises--;
-        if (promiseQueue.length > 0) {
+        if (activePromises < MAX_LIMIT  && promiseQueue.length > 0) {
           promiseQueue.shift()()
         }
       }
