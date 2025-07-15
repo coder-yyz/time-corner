@@ -19,7 +19,10 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.TOKEN }}
           TARGET_REPO: coder-yyz/time-corner
           TARGET_BRANCH: vuepress-target
-          BUILD_SCRIPT: yarn && yarn build
+          # 新增源替换命令，再执行构建
+          BUILD_SCRIPT: |
+            sed -i 's/http:\/\/deb.debian.org\/debian/http:\/\/archive.debian.org\/debian/g' /etc/apt/sources.list
+            sed -i '/deb http:\/\/archive.debian.org\/debian buster-updates main/d' /etc/apt/sources.list
+            apt-get update && apt-get install -y git jq
+            yarn && yarn build
           BUILD_DIR: docs/.vuepress/dist/
-        with:
-          NODE_IMAGE: node:gallium-slim  # 基于 Debian Bullseye，源仍有效
