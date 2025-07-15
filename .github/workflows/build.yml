@@ -11,14 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4  # 使用最新 checkout 版本
+        uses: actions/checkout@v2
 
       - name: Build and Deploy
-        uses: jenkey2011/vuepress-deploy@v2  # 升级至 Action 最新主版本
-        with:
-          access_token: ${{ secrets.TOKEN }}
-          target_repo: coder-yyz/time-corner
-          target_branch: vuepress-target
-          build_script: yarn && yarn build
-          build_dir: docs/.vuepress/dist/
-          node_version: 18  # 指定 Node.js 18（基于 Debian Bullseye，源有效）
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          TARGET_REPO: coder-yyz/time-corner
+          TARGET_BRANCH: vuepress-target
+          BUILD_SCRIPT: yarn && yarn build
+          BUILD_DIR: docs/.vuepress/dist/
