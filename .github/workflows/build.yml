@@ -21,3 +21,5 @@ jobs:
           TARGET_BRANCH: vuepress-target
           BUILD_SCRIPT: yarn && yarn build
           BUILD_DIR: docs/.vuepress/dist/
+        with:
+          NODE_IMAGE: node:gallium-slim  # 基于 Debian Bullseye，源仍有效
