@@ -65,6 +65,9 @@ xhr.send();
 | 同步请求     | 不支持同步请求                | 支持同步请求（不推荐）            |
 | 浏览器支持   | 新浏览器支持较好              | 兼容性较好，旧浏览器也支持         |
 
+
+![img.png](../../assets/images/fetch_and_xhr.png)
+
 ### 总结
 
 Fetch是一个现代的API，提供了更简洁和灵活的方式来处理网络请求。它使用Promise来处理异步操作，使得代码更易读。相比之下，XMLHttpRequest（XHR）是一个较旧的API，语法较为复杂，错误处理也不如Fetch方便。
