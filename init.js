@@ -82,7 +82,7 @@ function gen_router_config(dir_path, ref, parent_router_path) {
           return
         }
         const file = {
-          title: file_or_dir_name,
+          title: file_or_dir_name.replace(/\.(md|vue)$/, ''), // 去掉文件后缀
           path: current_router_path
         }
         ref.push(file)
