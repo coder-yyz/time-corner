@@ -30,7 +30,7 @@
 
 Vite也是相同的情况：
 
-1. 脚手架：可以搭建各种类型（Vue、React、Sevlte、Solid.js）的项目
+1. 脚手架：可以搭建各种类型（Vue、React、Svelte、Solid.js）的项目
 2. 构建：包含两个构建工具
     - esbuild：用于开发环境
     - rollup：用于生产环境
